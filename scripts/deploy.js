@@ -32,7 +32,8 @@ async function deployDiamond () {
   console.log('Deploying facets')
   const FacetNames = [
     'DiamondLoupeFacet',
-    'OwnershipFacet'
+    'OwnershipFacet',
+    'TodoFacet'
   ]
   const cut = []
   for (const FacetName of FacetNames) {
@@ -61,6 +62,32 @@ async function deployDiamond () {
   if (!receipt.status) {
     throw Error(`Diamond upgrade failed: ${tx.hash}`)
   }
+
+  // INTERACTING WITH THE DIAMOND BY CALLING THE TODOSTORAGE FACET FUNCTIONS
+  const TodoStorage = await ethers.getContractAt(
+    "TodoFacet",
+    diamond.address
+  ); // load the deployed diamond with the ABI of the TodoStorage facet.
+
+  //Create the first task
+  const createTask = await TodoStorage.createTask('Read')
+  createTask.wait();
+
+  //Create the second task
+  const createAnotherTask = await TodoStorage.createTask('Cook')
+  createAnotherTask.wait();
+
+  const completeTaskTwo = await TodoStorage.toggleTask(1);
+  completeTaskTwo.wait();
+
+  const getTask = await TodoStorage.getTask(1); //Get the second task when its not completed
+  console.log(`My Task is to: ${getTask}`);
+
+  //Get all tasks
+  const getTasksLen = await TodoStorage.getTaskCount();
+  console.log("All avaible tasks are:", getTasksLen);
+
+
   console.log('Completed diamond cut')
   return diamond.address
 }
