@@ -71,21 +71,25 @@ async function deployDiamond () {
 
   //Create the first task
   const createTask = await TodoStorage.createTask('Read')
-  createTask.wait();
+  await createTask.wait();
 
   //Create the second task
   const createAnotherTask = await TodoStorage.createTask('Cook')
-  createAnotherTask.wait();
+  await createAnotherTask.wait();
+
+  const completeTaskOne = await TodoStorage.toggleTask(0);
+  await completeTaskOne.wait();
 
   const completeTaskTwo = await TodoStorage.toggleTask(1);
-  completeTaskTwo.wait();
+  await completeTaskTwo.wait();
 
   const getTask = await TodoStorage.getTask(1); //Get the second task when its not completed
   console.log(`My Task is to: ${getTask}`);
 
+
   //Get all tasks
   const getTasksLen = await TodoStorage.getTaskCount();
-  console.log("All avaible tasks are:", getTasksLen);
+  console.log("All available tasks are:", getTasksLen.toString());
 
 
   console.log('Completed diamond cut')

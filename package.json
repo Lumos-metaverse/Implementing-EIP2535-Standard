@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mudgen/contracts-starter#readme",
   "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "chai": "^4.3.4",
@@ -24,8 +25,12 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.4.1",
     "hardhat": "^2.4.1",
+    "hardhat-etherscan": "^1.0.1",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.13",
     "standard": "^16.0.3"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.1.2"
   }
 }

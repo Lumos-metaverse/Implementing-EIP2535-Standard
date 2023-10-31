@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 library LibTodoStorage {
     bytes32 constant TODO_STORAGE_POSITION = keccak256("diamond.standard.todo.storage");
