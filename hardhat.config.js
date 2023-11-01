@@ -1,4 +1,3 @@
-/* global ethers task */
 require('@nomiclabs/hardhat-waffle')
 require('dotenv').config();
 require("@nomiclabs/hardhat-etherscan");
@@ -33,11 +32,11 @@ module.exports = {
   }
 }
 
-// DiamondCutFacet deployed: 0xD3B1035e77A91cD27c4E46Ba51B6075412FA6625
-// Diamond deployed: 0xc66D773b02A06ef995D9819ed190131161Bd027E
-// DiamondInit deployed: 0xd7A3b3bb172EF2Edc9c053687fcB60a529756286
+// DiamondCutFacet deployed: 0x29e12230dF8f0573F2396327A7fB77a3F6330Dad
+// Diamond deployed: 0xBA4152495de0cf228718f9D51c4a73641FfE6161
+// DiamondInit deployed: 0x2cd97165807c2B959aadd34A788150fAE0a24084
 
 // Deploying facets
-// DiamondLoupeFacet deployed: 0x684db48742928F77D2903d15ea18E0875BE02ca3
-// OwnershipFacet deployed: 0xF7e253cFA779b5004Ac24A64DA914E95BEAa3123
-// TodoFacet deployed: 0x177d19133270F40bdf74D5BF2fb384081Ccc1E73
+// DiamondLoupeFacet deployed: 0x453e44C8381EE17B027D0F46b7D41C163ea63be4
+// OwnershipFacet deployed: 0x35391F14D81CbE3A56DeFCe8999eB2c5989859b3
+// TodoFacet deployed: 0xE0a065e82671871FE85E688Ba1F208Cbea7E4f7C
