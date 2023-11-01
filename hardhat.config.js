@@ -1,6 +1,7 @@
 /* global ethers task */
 require('@nomiclabs/hardhat-waffle')
 require('dotenv').config();
+require("@nomiclabs/hardhat-etherscan");
 
 task('accounts', 'Prints the list of accounts', async () => {
   const accounts = await ethers.getSigners()
@@ -12,8 +13,11 @@ task('accounts', 'Prints the list of accounts', async () => {
 
 module.exports = {
   solidity: '0.8.4',
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
   networks: {
-    mumbai: {
+    sepolia: {
       url: process.env.ALCHEMY_API_KEY,
       accounts: [process.env.PRIVATE_KEY],
       blockGasLimit: 200000000000,
